@@ -15,45 +15,10 @@ import matplotlib.path as mplPath
 def calculateCoordinates(latitude: float, longitude: float):
     blocks = 7680
     tiles = 15
-    latitudeDirection = ""
-    latitudeHour = 0
-    latitudeMinute = 0
-    latitudeSecond = 0
-
-    if longitude < 0:
-        latitudeDirection = "south"
-        latitudeHour = math.floor(-1 * latitude)
-        latitudeMinute = math.floor((-1 * latitude - latitudeHour) * 60)
-        latitudeSecond = math.floor(-1 * latitude - (latitudeHour + latitudeMinute / 60)) * 3600
-    else:
-        latitudeDirection = "north"
-        latitudeHour = math.floor(latitude)
-        latitudeMinute = math.floor((latitude - latitudeHour) * 60)
-        latitudeSecond = (latitude - (latitudeHour + latitudeMinute / 60)) * 3600
-
-    longitudeDirection = ""
-    longitudeHour = 0
-    longitudeMinute = 0
-    longitudeSecond = 0
-
-    if longitude < 0:
-        longitudeDirection = "west"
-        longitudeHour = math.floor(-1 * longitude)
-        longitudeMinute = math.floor((-1 * longitude - longitudeHour) * 60)
-        longitudeSecond = (-1 * longitude - (longitudeHour + longitudeMinute / 60)) * 3600
-    else:
-        longitudeDirection = "east"
-        longitudeHour = math.floor(longitude)
-        longitudeMinute = math.floor((longitude - longitudeHour) * 60)
-        longitudeSecond = (longitude - (longitudeHour + longitudeMinute / 60)) * 3600
-
-    xCoordinate = round(longitude * blocks / tiles)
-    yCoordinate = 255
-    zCoordinate = -1 * round(latitude * blocks / tiles)
     return {
-        "x": int(xCoordinate),
-        "y": int(yCoordinate),
-        "z": int(zCoordinate)
+        "x": int(round(longitude * blocks / tiles)),
+        "y": 255,
+        "z": int(-1 * round(latitude * blocks / tiles))
     }
 
 
