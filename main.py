@@ -31,5 +31,3 @@ print(citiesList)
 print(rankings)
 ax.bar(citiesList, rankings)
 plt.show()
-
-#%%
