@@ -17,9 +17,9 @@ populations = json.loads(open(r"populations.json", encoding="utf8").read())
 rankingDict = {}
 for city in cities:
     population = populations[city]
-    techCompanies = cities[city]
-    techCompaniesPerCapita = round(population / techCompanies)
-    rankingDict[city] = techCompaniesPerCapita
+    companies = cities[city]
+    companiesPerCapita = round(population / companies)
+    rankingDict[city] = companiesPerCapita
 
 fig = plt.figure()
 ax = fig.add_axes([1, 1, 1, 1])
